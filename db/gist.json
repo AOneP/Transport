@@ -1,0 +1,321 @@
+{
+  "type" : "FeatureCollection",
+  "features" : [ {
+    "type" : "Feature",
+    "properties" : {
+      "duration" : 65,
+      "commute" : {
+        "valid" : true,
+        "duration" : 66,
+        "legs" : [ {
+          "mode" : "WALK",
+          "from" : {
+            "name" : "Origin",
+            "coordinate" : [ 103.909818360768, 1.40486303205709 ],
+            "arrival_time" : null,
+            "departure_time" : "2019-01-02T08:00:26+08:00"
+          },
+          "to" : {
+            "name" : "Punggol",
+            "coordinate" : [ 103.9023538, 1.4052551 ],
+            "arrival_time" : "2019-01-02T08:14:59+08:00",
+            "departure_time" : "2019-01-02T08:15:00+08:00"
+          },
+          "trip" : null,
+          "capacity" : null,
+          "status" : "OK"
+        }, {
+          "mode" : "TRANSIT",
+          "from" : {
+            "name" : "Punggol",
+            "coordinate" : [ 103.9023538, 1.4052551 ],
+            "arrival_time" : "2019-01-02T08:14:59+08:00",
+            "departure_time" : "2019-01-02T08:15:00+08:00"
+          },
+          "to" : {
+            "name" : "Little India",
+            "coordinate" : [ 103.8492986, 1.3065714 ],
+            "arrival_time" : "2019-01-02T08:33:00+08:00",
+            "departure_time" : "2019-01-02T08:35:00+08:00"
+          },
+          "trip" : {
+            "trip_id" : "NE:WD:1",
+            "route" : "NE",
+            "departure_time" : "2019-01-02T08:15:00+08:00"
+          },
+          "capacity" : {
+            "min" : 1599.0,
+            "max" : 1599.0,
+            "mean" : 1599.0
+          },
+          "status" : "OK"
+        }, {
+          "mode" : "TRANSIT",
+          "from" : {
+            "name" : "Little India",
+            "coordinate" : [ 103.8492986, 1.3065714 ],
+            "arrival_time" : "2019-01-02T08:33:00+08:00",
+            "departure_time" : "2019-01-02T08:35:00+08:00"
+          },
+          "to" : {
+            "name" : "Beauty World",
+            "coordinate" : [ 103.775935, 1.3416523 ],
+            "arrival_time" : "2019-01-02T08:50:00+08:00",
+            "departure_time" : "2019-01-02T08:50:01+08:00"
+          },
+          "trip" : {
+            "trip_id" : "DT:WD:1",
+            "route" : "DT",
+            "departure_time" : "2019-01-02T07:50:00+08:00"
+          },
+          "capacity" : {
+            "min" : 1599.0,
+            "max" : 1599.0,
+            "mean" : 1599.0
+          },
+          "status" : "OK"
+        }, {
+          "mode" : "WALK",
+          "from" : {
+            "name" : "Beauty World",
+            "coordinate" : [ 103.775935, 1.3416523 ],
+            "arrival_time" : "2019-01-02T08:50:00+08:00",
+            "departure_time" : "2019-01-02T08:50:01+08:00"
+          },
+          "to" : {
+            "name" : "Destination",
+            "coordinate" : [ 103.776359212791, 1.34953907236345 ],
+            "arrival_time" : "2019-01-02T09:06:24+08:00",
+            "departure_time" : null
+          },
+          "trip" : null,
+          "capacity" : null,
+          "status" : "OK"
+        } ]
+      },
+      "status" : "OK",
+      "other_commutes" : [ ]
+    },
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 103.776359212791, 1.34953907236345 ]
+    }
+  }, {
+    "type" : "Feature",
+    "properties" : {
+      "duration" : 70,
+      "commute" : {
+        "valid" : true,
+        "duration" : 70,
+        "legs" : [ {
+          "mode" : "WALK",
+          "from" : {
+            "name" : "Origin",
+            "coordinate" : [ 103.909818360768, 1.40486303205709 ],
+            "arrival_time" : null,
+            "departure_time" : "2019-01-02T08:00:26+08:00"
+          },
+          "to" : {
+            "name" : "Punggol",
+            "coordinate" : [ 103.9023538, 1.4052551 ],
+            "arrival_time" : "2019-01-02T08:14:59+08:00",
+            "departure_time" : "2019-01-02T08:15:00+08:00"
+          },
+          "trip" : null,
+          "capacity" : null,
+          "status" : "OK"
+        }, {
+          "mode" : "TRANSIT",
+          "from" : {
+            "name" : "Punggol",
+            "coordinate" : [ 103.9023538, 1.4052551 ],
+            "arrival_time" : "2019-01-02T08:14:59+08:00",
+            "departure_time" : "2019-01-02T08:15:00+08:00"
+          },
+          "to" : {
+            "name" : "Little India",
+            "coordinate" : [ 103.8492986, 1.3065714 ],
+            "arrival_time" : "2019-01-02T08:33:00+08:00",
+            "departure_time" : "2019-01-02T08:35:00+08:00"
+          },
+          "trip" : {
+            "trip_id" : "NE:WD:1",
+            "route" : "NE",
+            "departure_time" : "2019-01-02T08:15:00+08:00"
+          },
+          "capacity" : {
+            "min" : 1598.0,
+            "max" : 1598.0,
+            "mean" : 1598.0
+          },
+          "status" : "OK"
+        }, {
+          "mode" : "TRANSIT",
+          "from" : {
+            "name" : "Little India",
+            "coordinate" : [ 103.8492986, 1.3065714 ],
+            "arrival_time" : "2019-01-02T08:33:00+08:00",
+            "departure_time" : "2019-01-02T08:35:00+08:00"
+          },
+          "to" : {
+            "name" : "Beauty World",
+            "coordinate" : [ 103.775935, 1.3416523 ],
+            "arrival_time" : "2019-01-02T08:50:00+08:00",
+            "departure_time" : "2019-01-02T08:50:01+08:00"
+          },
+          "trip" : {
+            "trip_id" : "DT:WD:1",
+            "route" : "DT",
+            "departure_time" : "2019-01-02T07:50:00+08:00"
+          },
+          "capacity" : {
+            "min" : 1598.0,
+            "max" : 1598.0,
+            "mean" : 1598.0
+          },
+          "status" : "OK"
+        }, {
+          "mode" : "WALK",
+          "from" : {
+            "name" : "Beauty World",
+            "coordinate" : [ 103.775935, 1.3416523 ],
+            "arrival_time" : "2019-01-02T08:50:00+08:00",
+            "departure_time" : "2019-01-02T08:50:01+08:00"
+          },
+          "to" : {
+            "name" : "Destination",
+            "coordinate" : [ 103.780850789212, 1.34953907236345 ],
+            "arrival_time" : "2019-01-02T09:10:33+08:00",
+            "departure_time" : null
+          },
+          "trip" : null,
+          "capacity" : null,
+          "status" : "OK"
+        } ]
+      },
+      "status" : "OK",
+      "other_commutes" : [ ]
+    },
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 103.780850789212, 1.34953907236345 ]
+    }
+  }, {
+    "type" : "Feature",
+    "properties" : {
+      "duration" : 81,
+      "commute" : {
+        "valid" : true,
+        "duration" : 82,
+        "legs" : [ {
+          "mode" : "WALK",
+          "from" : {
+            "name" : "Origin",
+            "coordinate" : [ 103.909818360768, 1.40486303205709 ],
+            "arrival_time" : null,
+            "departure_time" : "2019-01-02T08:00:26+08:00"
+          },
+          "to" : {
+            "name" : "Punggol",
+            "coordinate" : [ 103.9023538, 1.4052551 ],
+            "arrival_time" : "2019-01-02T08:14:59+08:00",
+            "departure_time" : "2019-01-02T08:15:00+08:00"
+          },
+          "trip" : null,
+          "capacity" : null,
+          "status" : "OK"
+        }, {
+          "mode" : "TRANSIT",
+          "from" : {
+            "name" : "Punggol",
+            "coordinate" : [ 103.9023538, 1.4052551 ],
+            "arrival_time" : "2019-01-02T08:14:59+08:00",
+            "departure_time" : "2019-01-02T08:15:00+08:00"
+          },
+          "to" : {
+            "name" : "Boon Keng",
+            "coordinate" : [ 103.8615207, 1.3198244 ],
+            "arrival_time" : "2019-01-02T08:30:00+08:00",
+            "departure_time" : "2019-01-02T08:30:00+08:00"
+          },
+          "trip" : {
+            "trip_id" : "NE:WD:1",
+            "route" : "NE",
+            "departure_time" : "2019-01-02T08:15:00+08:00"
+          },
+          "capacity" : {
+            "min" : 1597.0,
+            "max" : 1597.0,
+            "mean" : 1597.0
+          },
+          "status" : "OK"
+        }, {
+          "mode" : "WALK",
+          "from" : {
+            "name" : "Boon Keng",
+            "coordinate" : [ 103.8615207, 1.3198244 ],
+            "arrival_time" : "2019-01-02T08:30:00+08:00",
+            "departure_time" : "2019-01-02T08:30:00+08:00"
+          },
+          "to" : {
+            "name" : "Boon Keng Stn/Blk 102",
+            "coordinate" : [ 103.86179781146463, 1.32008815616383 ],
+            "arrival_time" : "2019-01-02T08:30:34+08:00",
+            "departure_time" : "2019-01-02T08:32:00+08:00"
+          },
+          "trip" : null,
+          "capacity" : null,
+          "status" : "OK"
+        }, {
+          "mode" : "TRANSIT",
+          "from" : {
+            "name" : "Boon Keng Stn/Blk 102",
+            "coordinate" : [ 103.86179781146463, 1.32008815616383 ],
+            "arrival_time" : "2019-01-02T08:30:34+08:00",
+            "departure_time" : "2019-01-02T08:32:00+08:00"
+          },
+          "to" : {
+            "name" : "Opp Bt Timah Plaza",
+            "coordinate" : [ 103.77941451542826, 1.34007090936874 ],
+            "arrival_time" : "2019-01-02T08:59:00+08:00",
+            "departure_time" : "2019-01-02T08:59:01+08:00"
+          },
+          "trip" : {
+            "trip_id" : "985:WD:1",
+            "route" : "985",
+            "departure_time" : "2019-01-02T08:24:00+08:00"
+          },
+          "capacity" : {
+            "min" : 89.0,
+            "max" : 89.0,
+            "mean" : 89.0
+          },
+          "status" : "OK"
+        }, {
+          "mode" : "WALK",
+          "from" : {
+            "name" : "Opp Bt Timah Plaza",
+            "coordinate" : [ 103.77941451542826, 1.34007090936874 ],
+            "arrival_time" : "2019-01-02T08:59:00+08:00",
+            "departure_time" : "2019-01-02T08:59:01+08:00"
+          },
+          "to" : {
+            "name" : "Destination",
+            "coordinate" : [ 103.785342365632, 1.34953907236345 ],
+            "arrival_time" : "2019-01-02T09:22:01+08:00",
+            "departure_time" : null
+          },
+          "trip" : null,
+          "capacity" : null,
+          "status" : "OK"
+        } ]
+      },
+      "status" : "OK",
+      "other_commutes" : [ ]
+    },
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 103.785342365632, 1.34953907236345 ]
+    }
+  }]
+}
