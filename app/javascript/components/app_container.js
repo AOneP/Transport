@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import AutoCompleteInput from './autocomplete_input'
-import Showmap from './showmap'
+import AutocompleteInput from './autocomplete_input'
+import MapComponent from './map_component'
 import TransitDetails from './transit_details'
 
 const onSelectAutocomplete = (element, hookCallback) => {
@@ -17,12 +17,12 @@ const AppContainer = () => {
   return (
     <div className="app-container">
       <div className="input-container">
-        <AutoCompleteInput
+        <AutocompleteInput
           searchType="from"
           placeholder="From"
           onSelect={(element) => onSelectAutocomplete(element, setFromValues)}
         />
-        <AutoCompleteInput
+        <AutocompleteInput
           searchType="to"
           placeholder="To"
           onSelect={(element) => onSelectAutocomplete(element, setToValues)}
@@ -31,7 +31,7 @@ const AppContainer = () => {
       <div className="showmap-container">
         {
           (fromValues.lat || toValues.lat) && (
-            <Showmap
+            <MapComponent
               fromLat={fromValues.lat}
               fromLng={fromValues.lng}
               toLat={toValues.lat}

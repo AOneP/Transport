@@ -4,9 +4,7 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker } from 'react-google-map
 
 const isFloat = n => Number(n) === n && n % 1 !== 0
 
-const defaultCenter = (fromLat, fromLng, toLat, toLng) => {
-  console.log('test', fromLat, fromLng, toLat, toLng)
-  console.log('wynik', ((fromLat+toLat)/2), ((fromLng+toLng)/2))
+const calculateCenter = (fromLat, fromLng, toLat, toLng) => {
   if (fromLat && toLat) {
     return (
       { lat: ((fromLat + toLat)/2), lng: ((fromLng + toLng)/2) }
@@ -19,13 +17,20 @@ const defaultCenter = (fromLat, fromLng, toLat, toLng) => {
     }
   }
 
-const MyMapComponent = withScriptjs(withGoogleMap((props) => {
-  const { fromLat, fromLng, toLat, toLng } = props
+const calculateZoom = (fromLat, fromLng, toLat, toLng) => {
+  let newZoom = 15
+  if (fromLat && toLat) {
+    newZoom = 11
+  }
+  return newZoom
+}
 
+const CustomComponent = withScriptjs(withGoogleMap((props) => {
+  const { fromLat, fromLng, toLat, toLng } = props
   return (
     <GoogleMap
-      defaultZoom={15}
-      defaultCenter={defaultCenter(fromLat, fromLng, toLat, toLng)}
+      zoom={calculateZoom(fromLat, fromLng, toLat, toLng)}
+      center={calculateCenter(fromLat, fromLng, toLat, toLng)}
     >
     {
       isFloat(fromLat) && isFloat(fromLng) && (<Marker
@@ -41,10 +46,10 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) => {
 }
 ))
 
-const Showmap = ({ fromLat, fromLng, toLat, toLng }) => {
+const MapComponent = ({ fromLat, fromLng, toLat, toLng }) => {
   return (
     <div style={{ width: '70vw' }}>
-      <MyMapComponent
+      <CustomComponent
         googleMapURL="https://maps.googleapis.com/maps/api/js?&v=3.exp&libraries=geometry,drawing,places"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
@@ -58,4 +63,4 @@ const Showmap = ({ fromLat, fromLng, toLat, toLng }) => {
   )
 }
 
-export default Showmap
+export default MapComponent

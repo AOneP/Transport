@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import api from "./api"
 import uuid from 'uuid'
 
+const RESTRICTED_CHARACTERS = [ '[', ']' ]
 
 const onClickElement = (element, setListElements, setInputValue, setSelectedValue, selectedValue, onSelect) => {
   onSelect(element)
@@ -23,6 +24,8 @@ const renderList = (collection, setListElements, setInputValue, setSelectedValue
 
 const onInputChange = (e, searchType, setInputValue, setListElements, selectedValue, setSelectedValue, onSelect) => {
   const { value } = e.target
+  const splitValue = value.split('')
+  if (RESTRICTED_CHARACTERS.includes(splitValue[splitValue.length - 1])) { return }
   const payload = {
       type: searchType,
       query: value,
@@ -39,8 +42,7 @@ const onInputChange = (e, searchType, setInputValue, setListElements, selectedVa
     })
   }
 
-
-const AutoCompleteInput = ({ searchType, placeholder, onSelect }) => {
+const AutocompleteInput = ({ searchType, placeholder, onSelect }) => {
   const [inputValue, setInputValue] = useState('')
   const [listElements, setListElements] = useState([])
   const [selectedValue, setSelectedValue] = useState(null)
@@ -62,8 +64,8 @@ const AutoCompleteInput = ({ searchType, placeholder, onSelect }) => {
   )
 }
 
-AutoCompleteInput.propTypes = {
+AutocompleteInput.propTypes = {
   searchType: PropTypes.string.isRequired,
 }
 
-export default AutoCompleteInput
+export default AutocompleteInput
