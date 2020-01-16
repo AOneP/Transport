@@ -42,11 +42,10 @@ const getBoundsZoomLevel = (bounds, mapDim) => {
   const latZoom = zoom(mapDim.height, WORLD_DIM.height, latFraction);
   const lngZoom = zoom(mapDim.width, WORLD_DIM.width, lngFraction);
 
-  const result = Math.min(latZoom, lngZoom, ZOOM_MAX)
+  let result = Math.min(latZoom, lngZoom, ZOOM_MAX)
   if (result > 17) {
     return 17
-  }
-  else {
+  } else {
     return result
   }
 }
@@ -70,14 +69,20 @@ const CustomMapComponent = withScriptjs(withGoogleMap((props) => {
       center={calculateCenter(fromLat, fromLng, toLat, toLng)}
     >
     {
-      isFloat(fromLat) && isFloat(fromLng) && (<Marker
-      position={{ lat: fromLat, lng: fromLng }}
-      />)}
+      isFloat(fromLat) && isFloat(fromLng) && (
+        <Marker
+          position={{ lat: fromLat, lng: fromLng }}
+        />
+      )
+    }
 
     {
-      isFloat(toLat) && isFloat(toLng) && (<Marker
-      position={{ lat: toLat, lng: toLng}}
-      />)}
+      isFloat(toLat) && isFloat(toLng) && (
+        <Marker
+          position={{ lat: toLat, lng: toLng}}
+        />
+      )
+    }
     </GoogleMap>
   )
 }))

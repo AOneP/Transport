@@ -9,6 +9,7 @@ import uuid from 'uuid'
 const RESTRICTED_CHARACTERS = [ '[', ']' ]
 
 const onSelectAutocomplete = (element, hookCallback) => {
+
   if (element === null) {
     hookCallback({})
     return
@@ -20,12 +21,14 @@ const onSelectAutocomplete = (element, hookCallback) => {
 const onAutocompleteInputChange = (e, setAutocompleteValue, setAutocompleteItems, toValues, setToValues) => {
   const { value } = e.target
   const splitValue = value.split('')
+
   if (RESTRICTED_CHARACTERS.includes(splitValue[splitValue.length - 1])) { return }
   const payload = {
     type: 'to',
     query: value,
   }
-  api.get(payload, '/autocompletes').then(data => {
+
+  api.get(payload, 'api/autocompletes').then(data => {
     if (toValues.name) {
       setToValues({})
     }
@@ -39,6 +42,7 @@ const AppContainer = () => {
   const [toValues, setToValues] = useState({})
   const [autocompleteValue, setAutocompleteValue] = useState('')
   const [autocompleteItems, setAutocompleteItems] = useState([])
+
   return (
     <div className="app-container">
       <div className="input-container">
@@ -70,7 +74,7 @@ const AppContainer = () => {
             setAutocompleteValue(val)
             onSelectAutocomplete(item, setToValues)
           }}
-          inputProps={{ className: 'input' }}
+          inputProps={{ className: 'input', placeholder: 'To (gotowiec)' }}
         />
     </div>
       </div>

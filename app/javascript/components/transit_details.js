@@ -17,4 +17,10 @@ const TransitDetails = ({ name, arrivalTime, departureTime }) => {
   )
 }
 
+TransitDetails.propTypes = {
+  name: PropTypes.string.isRequired,
+  arrivalTime: PropTypes.string.isRequired,
+  departureTime: PropTypes.string.isRequired,
+}
+
 export default TransitDetails

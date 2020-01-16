@@ -25,14 +25,14 @@ const renderList = (collection, setListElements, setInputValue, setSelectedValue
 const onInputChange = (e, searchType, setInputValue, setListElements, selectedValue, setSelectedValue, onSelect) => {
   const { value } = e.target
   const splitValue = value.split('')
+
   if (RESTRICTED_CHARACTERS.includes(splitValue[splitValue.length - 1])) { return }
   const payload = {
       type: searchType,
       query: value,
     }
 
-
-    api.get(payload, '/autocompletes').then(data => {
+    api.get(payload, '/api/autocompletes').then(data => {
       if (selectedValue) {
         setSelectedValue(null)
         onSelect(null)
@@ -46,6 +46,7 @@ const AutocompleteInput = ({ searchType, placeholder, onSelect }) => {
   const [inputValue, setInputValue] = useState('')
   const [listElements, setListElements] = useState([])
   const [selectedValue, setSelectedValue] = useState(null)
+
   return (
     <div className="input-list-container">
       <div>
@@ -66,6 +67,12 @@ const AutocompleteInput = ({ searchType, placeholder, onSelect }) => {
 
 AutocompleteInput.propTypes = {
   searchType: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  placeholder: PropTypes.string
+}
+
+AutocompleteInput.defaultProps = {
+  placeholder: 'Gotowiec reactJS',
 }
 
 export default AutocompleteInput
