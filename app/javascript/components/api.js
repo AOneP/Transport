@@ -18,8 +18,8 @@ const api = {
     const options = { method, headers, body: JSON.stringify(payload) }
 
     return fetch(path, options)
-    .then(response => response.json)
-    .catch(ex => console.error('parsing failed', ex))
+      .then(response => response.json)
+      .catch(ex => console.error('parsing failed', ex))
   },
 }
 

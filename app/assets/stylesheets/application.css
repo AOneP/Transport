@@ -20,12 +20,8 @@ body {
   background: linear-gradient(55deg, rgba(2,0,36,1) 0%, rgba(27,192,217,1) 0%, rgba(0,255,156,1) 100%);
 }
 
-/* .appcontainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} */
 .input-list-container {
+  -webkit-appearance: none;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -48,9 +44,6 @@ body {
   background: rgba(255,255,255,0.7);
   position: absolute;
   top:100px;
-}
-
-.element-list {
 }
 
 .showmap-container {

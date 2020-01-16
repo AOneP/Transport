@@ -22,8 +22,8 @@ const getBoundsZoomLevel = (bounds, mapDim) => {
   const ZOOM_MAX = 21;
 
   function latRad(lat) {
-    var sin = Math.sin(lat * Math.PI / 180);
-    var radX2 = Math.log((1 + sin) / (1 - sin)) / 2;
+    const sin = Math.sin(lat * Math.PI / 180);
+    const radX2 = Math.log((1 + sin) / (1 - sin)) / 2;
     return Math.max(Math.min(radX2, Math.PI), -Math.PI) / 2;
   }
 
@@ -42,7 +42,13 @@ const getBoundsZoomLevel = (bounds, mapDim) => {
   const latZoom = zoom(mapDim.height, WORLD_DIM.height, latFraction);
   const lngZoom = zoom(mapDim.width, WORLD_DIM.width, lngFraction);
 
-  return Math.min(latZoom, lngZoom, ZOOM_MAX);
+  const result = Math.min(latZoom, lngZoom, ZOOM_MAX)
+  if (result > 17) {
+    return 17
+  }
+  else {
+    return result
+  }
 }
 
 const CustomMapComponent = withScriptjs(withGoogleMap((props) => {
@@ -88,7 +94,7 @@ const MapComponent = ({ fromLat, fromLng, toLat, toLng }) => {
         fromLng={fromLng}
         toLat={toLat}
         toLng={toLng}
-        />
+      />
     </div>
   )
 }
