@@ -28,7 +28,7 @@ const AppContainer = () => {
           onSelect={(element) => onSelectAutocomplete(element, setToValues)}
         />
       </div>
-      <div className="showmap-container">
+      <div id="showmap" className="showmap-container">
         {
           (fromValues.lat || toValues.lat) && (
             <MapComponent
