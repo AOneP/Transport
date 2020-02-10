@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     resources :autocompletes, only: [:index]
   end
   resources :transports, only: [:index]
+  resources :xtransports, only: [:index]
 end

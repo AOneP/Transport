@@ -1,6 +1,8 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import PropTypes from "prop-types"
-import { GoogleMap, withScriptjs, withGoogleMap, Marker } from 'react-google-maps'
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, DirectionsRenderer } from 'react-google-maps'
+import { DrawingManager } from "react-google-maps/lib/components/drawing/DrawingManager"
+import { compose, withProps, lifecycle } from "recompose"
 
 const isFloat = n => Number(n) === n && n % 1 !== 0
 
@@ -50,8 +52,17 @@ const getBoundsZoomLevel = (bounds, mapDim) => {
   }
 }
 
-const CustomMapComponent = withScriptjs(withGoogleMap((props) => {
-  const { fromLat, fromLng, toLat, toLng } = props
+const MapWithADirectionsRenderer = compose(
+  withProps({
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCLCPvCfDioClzrEj3tcTNf-k05P6txxek&v=3.exp&libraries=geometry,drawing,places",
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `400px` }} />,
+    mapElement: <div style={{ height: `100%` }} />,
+  }),
+  withScriptjs,
+  withGoogleMap,
+)(props => {
+  const { fromLat, fromLng, toLat, toLng, directions } = props
   const mapElement = document.getElementById("showmap")
   const mapDim = { height: mapElement.offsetHeight, width: mapElement.offsetWidth }
   const bounds = new window.google.maps.LatLngBounds()
@@ -68,37 +79,56 @@ const CustomMapComponent = withScriptjs(withGoogleMap((props) => {
       zoom={getBoundsZoomLevel(bounds, mapDim)}
       center={calculateCenter(fromLat, fromLng, toLat, toLng)}
     >
-    {
-      isFloat(fromLat) && isFloat(fromLng) && (
-        <Marker
-          position={{ lat: fromLat, lng: fromLng }}
-        />
-      )
-    }
+      {
+        isFloat(fromLat) && isFloat(fromLng) && (
+          <Marker
+            position={{ lat: fromLat, lng: fromLng }}
+          />
+        )
+      }
 
-    {
-      isFloat(toLat) && isFloat(toLng) && (
-        <Marker
-          position={{ lat: toLat, lng: toLng}}
-        />
-      )
-    }
+      {
+        isFloat(toLat) && isFloat(toLng) && (
+          <Marker
+            position={{ lat: toLat, lng: toLng}}
+          />
+        )
+      }
+      {directions && <DirectionsRenderer directions={directions} />}
     </GoogleMap>
   )
-}))
+}
+)
 
 const MapComponent = ({ fromLat, fromLng, toLat, toLng }) => {
+  const [directions, setDirections] = useState(undefined)
+  useEffect(() => {
+    if (fromLat && fromLng && toLat && toLng && directions === undefined) {
+      const DirectionsService = new window.google.maps.DirectionsService();
+
+      DirectionsService.route({
+        origin: new google.maps.LatLng(fromLat, fromLng),
+        destination: new google.maps.LatLng(toLat, toLng),
+        travelMode: google.maps.TravelMode.DRIVING,
+      }, (result, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+          setDirections(result)
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      })
+
+    }
+  })
+
   return (
     <div style={{ width: '70vw' }}>
-      <CustomMapComponent
-        googleMapURL="https://maps.googleapis.com/maps/api/js?&v=3.exp&libraries=geometry,drawing,places"
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
+      <MapWithADirectionsRenderer
         fromLat={fromLat}
         fromLng={fromLng}
         toLat={toLat}
         toLng={toLng}
+        directions={directions}
       />
     </div>
   )

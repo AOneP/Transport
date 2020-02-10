@@ -15,10 +15,10 @@ const api = {
   },
 
   post: (payload, path, method = 'POST') => {
-    const options = { method, headers, body: JSON.stringify(payload) }
+    const options = { method: method, headers, body: JSON.stringify(payload) }
 
     return fetch(path, options)
-      .then(response => response.json)
+      .then(response => response.json())
       .catch(ex => console.error('parsing failed', ex))
   },
 }

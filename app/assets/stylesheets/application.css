@@ -52,28 +52,28 @@ body {
 }
 
 .input {
-    display: inline-block;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    padding: 10px 20px;
-    border: none;
-    -webkit-border-radius: 29px;
-    border-radius: 29px;
-    font: normal 16px/normal "Times New Roman", Times, serif;
-    color: rgba(3,6,91,1);
-    text-align: center;
-    -o-text-overflow: clip;
-    text-overflow: clip;
-    word-spacing: 3px;
-    background: rgba(255,255,255,0.7);
-    -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-    text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
-    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 10px 20px;
+  border: none;
+  -webkit-border-radius: 29px;
+  border-radius: 29px;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: rgba(3,6,91,1);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  word-spacing: 3px;
+  background: rgba(255,255,255,0.7);
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   }
 
 .transit-detail-main {
@@ -90,6 +90,29 @@ body {
   padding: 5px;
   background: rgba(255,255,255,0.7);
   min-width: 150px;
+}
+
+.transit-details-container-2 {
+  border: 1px solid black;
+  margin-left: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  background: rgba(255,255,255,0.7);
+  min-width: 150px;
+  margin-top: 30px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.describe {
+  font-size: 20px;
+}
+
+.details {
+  margin-top: 10px;
 }
 .arrival-time {
   font-size: 15px;
@@ -112,4 +135,8 @@ body {
   justify-content: center;
   text-align: center;
   color: #527ac2;
+}
+
+.suggestions-container {
+  border: 1px solid red;
 }
