@@ -56,27 +56,27 @@ const AppContainer = () => {
           placeholder="To"
           onSelect={(element) => onSelectAutocomplete(element, setToValues)}
         />
-      <div className="input-list-container">
-        <Autocomplete
-          getItemValue={(item) => item.name}
-          items={autocompleteItems}
-          renderItem={(item, isHighlighted) =>
-            <div className="elementlist" key={uuid()}>
-              { item.name }
-            </div>
-          }
-          renderMenu={ (items, value) => {
-            return <div className="elementlist-container" children={items}/>
-          }}
-          value={autocompleteValue}
-          onChange={(e) => onAutocompleteInputChange(e, setAutocompleteValue, setAutocompleteItems, toValues, setToValues)}
-          onSelect={(val, item) => {
-            setAutocompleteValue(val)
-            onSelectAutocomplete(item, setToValues)
-          }}
-          inputProps={{ className: 'input', placeholder: 'To (gotowiec)' }}
-        />
-    </div>
+        <div className="input-list-container">
+          <Autocomplete
+            getItemValue={(item) => item.name}
+            items={autocompleteItems}
+            renderItem={(item, isHighlighted) =>
+              <div className="elementlist" key={uuid()}>
+                { item.name }
+              </div>
+            }
+            renderMenu={ (items, value) => {
+              return <div className="elementlist-container" children={items}/>
+            }}
+            value={autocompleteValue}
+            onChange={(e) => onAutocompleteInputChange(e, setAutocompleteValue, setAutocompleteItems, toValues, setToValues)}
+            onSelect={(val, item) => {
+              setAutocompleteValue(val)
+              onSelectAutocomplete(item, setToValues)
+            }}
+            inputProps={{ className: 'input', placeholder: 'To (gotowiec)' }}
+          />
+        </div>
       </div>
       <div id="showmap" className="showmap-container">
         {

@@ -1,0 +1,32 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLCPvCfDioClzrEj3tcTNf-k05P6txxek&libraries=places"></script>
+<%= react_component("x_app_container") %>
+
+<% @routes.each_with_index do |route, index| %>
+  <div class = "transit-details-container-2">
+    <div class="title">
+      Trasa nr <%= index + 1 %>
+    </div>
+    <div class="describe">
+      Czas trwania [min] <%= route['properties']['duration'] %>
+    </div>
+
+    <% route['properties']['commute']['legs'].each do |step| %>
+      <% if step['mode'] == 'WALK' %>
+      <div class="details">
+        Idź na nogach do <%= step['to']['name'] %>.
+        Szacowana godzina przybycia: <%= DateTime.parse(step['to']['arrival_time']).strftime('%R') %>
+      </div>
+      <% end %>
+      <% if step['mode'] == 'TRANSIT' %>
+      <div class="details">
+        Komunikacja miejska z <%= step['from']['name'] %> do <%= step['to']['name'] %>.
+        Czas odjazdu: <%= DateTime.parse(step['from']['departure_time']).strftime('%R') %>.
+        Czas przyjazdu: <%= DateTime.parse(step['to']['arrival_time']).strftime('%R') %>.
+        Ruch: <%= step['capacity']['mean'] %>
+        Trasa: <%= step['trip']['trip_id'] %>
+      </div>
+      <% end %>
+    <% end %>
+    <h4>JESTEŚ NA MIEJSCU :)</h4>
+  </div>
+<% end %>
